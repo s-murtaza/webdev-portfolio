@@ -81,7 +81,7 @@ export function ProjectItem({ project, index }) {
 								<VscSourceControl />
 								<span>Source</span>
 							</Link>
-						):(<p>
+						):(<p className="text-sm">
 							commercial private repository 
 						</p>)}
 						{liveUrl ? (
@@ -95,7 +95,7 @@ export function ProjectItem({ project, index }) {
 								<span>Demo</span>
 							</Link>
 						):(
-							<p>paid service demo not available</p>
+							<p className="text-sm">paid service demo not available</p>
 						)}
 					</div>
 				</footer>
