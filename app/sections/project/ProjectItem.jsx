@@ -13,7 +13,8 @@ export function ProjectItem({ project, index }) {
 	const cardRef = useRef(null);
 	const isInView = useInView(cardRef, { once: true });
 
-	const galleryImages = images.map((img) => ({
+	const galleryImages = images.map((img, index) => ({
+		key: index,
 		original: img,
 		loading: "lazy"
 	}));
