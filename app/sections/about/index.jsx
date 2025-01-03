@@ -18,7 +18,7 @@ export function AboutSection() {
 					<div
 						tabIndex="0"
 						ref={ref}
-						className="text-xl w-3/5 font-light leading-relaxed"
+						className="text-xl w-full md:w-3/5 font-light leading-relaxed"
 						style={{
 							transform: isInView ? "none" : "translateX(-200px)",
 							opacity: isInView ? 1 : 0,

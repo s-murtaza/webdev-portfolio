@@ -5,7 +5,6 @@ import ImageGallery from "react-image-gallery";
 import { Loader } from "components";
 import { VscSourceControl } from "react-icons/vsc";
 import { FiExternalLink } from "react-icons/fi";
-
 import "react-image-gallery/styles/css/image-gallery.css";
 
 export function ProjectItem({ project, index }) {
@@ -19,6 +18,7 @@ export function ProjectItem({ project, index }) {
 		loading: "lazy"
 	}));
 
+	
 	return (
 		<article
 			ref={cardRef}
@@ -41,6 +41,9 @@ export function ProjectItem({ project, index }) {
 							showIndex
 							lazyload
 							additionalClass="gallery-item"
+							autoPlay={true}							
+							slideInterval={5000} // 3 seconds
+
 						/>
 					</Suspense>
 				</div>
