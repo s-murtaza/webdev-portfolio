@@ -109,7 +109,7 @@ export function TimeLine() {
 							<li
 								id={`carousel__item-${index}`}
 								key={index}
-								className="flex flex-col gap-3 snap-start w-[calc((100%/2)-30px)] sm:w-1/3 md:w-[22%] p-8 bg-gray-800 rounded-md backdrop-blur-3xl shadow-sm"
+								className="flex flex-col gap-3 snap-start w-[calc((100%/2)-30px)] sm:w-1/3 md:w-[22%] p-8 dark:bg-gray-800 bg-white rounded-md backdrop-blur-3xl shadow-sm"
 								onClick={(e) => handleClick(e, index)}
 								style={{
 									transform: isInView
