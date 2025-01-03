@@ -71,7 +71,7 @@ export function ProjectItem({ project, index }) {
 					)}
 
 					<div className="flex-center gap-10">
-						{repoUrl && (
+						{repoUrl ? (
 							<Link
 								href={repoUrl}
 								target="_blank"
@@ -81,8 +81,10 @@ export function ProjectItem({ project, index }) {
 								<VscSourceControl />
 								<span>Source</span>
 							</Link>
-						)}
-						{liveUrl && (
+						):(<p>
+							commercial private repository 
+						</p>)}
+						{liveUrl ? (
 							<Link
 								href={liveUrl}
 								target="_blank"
@@ -92,6 +94,8 @@ export function ProjectItem({ project, index }) {
 								<FiExternalLink />
 								<span>Demo</span>
 							</Link>
+						):(
+							<p>paid service demo not available</p>
 						)}
 					</div>
 				</footer>
