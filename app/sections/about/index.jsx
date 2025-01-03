@@ -43,8 +43,8 @@ export function AboutSection() {
 						}}
 					>
 						<Image
-							src="/Remove background project.png"
-							alt="Remove background project"
+							src="/profilePic.png"
+							alt="profilePic"
 							width={350}
 							height={350}
 							className="object-cover rounded-md"
