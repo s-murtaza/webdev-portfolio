@@ -23,7 +23,6 @@ export const AppMetadata = {
 	],
 	creator: author,
 	authors: [{ name: author, url: url }],
-	colorScheme: "dark",
 	openGraph: {
 		title: `${author} | Portfolio`,
 		description: description,

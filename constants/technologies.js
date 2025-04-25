@@ -30,7 +30,6 @@ export const TECHNOLOGIES = [
 			{ name: "AntD", icon: <AiOutlineAntDesign size={32} /> },
 			{ name: "Bootstrap", icon: <BsBootstrap size={32} /> },
 			{ name: "ShadCn", icon: <ChakraIcon width={32} /> },
-			{ name: "HeadlessUI", icon: <HeadlessUiIcon width={32} /> }
 		]
 	},
 	{
@@ -46,10 +45,10 @@ export const TECHNOLOGIES = [
 		category: "Deployments",
 		items: [
 			{ name: "AWS", icon: <FaAws size={32} /> },
-			{ name: "Render", icon: <FaWordpressSimple size={32} /> },
 			{ name: "Vercel", icon: <JiraIcon width={32} /> },
 			{ name: "Docker", icon: <FaTrello size={32} /> },
 			{ name: "Github", icon: <AiFillGithub size={32} /> },
+			{name: "DigitalOcean"}
 		]
 	}
 ];

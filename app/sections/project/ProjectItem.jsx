@@ -8,7 +8,7 @@ import { FiExternalLink } from "react-icons/fi";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 export function ProjectItem({ project, index }) {
-	const { description, images, liveUrl, repoUrl, stack, title } = project;
+	const { description, images, links, technologies, title } = project;
 	const cardRef = useRef(null);
 	const isInView = useInView(cardRef, { once: true });
 
@@ -60,9 +60,9 @@ export function ProjectItem({ project, index }) {
 				</header>
 
 				<footer className="flex flex-col gap-10">
-					{!!stack.length && (
+					{!!technologies.length && (
 						<div className="flex-center flex-wrap gap-3">
-							{stack.map((tag) => (
+							{technologies.map((tag) => (
 								<span
 									key={tag}
 									tabIndex="0"
@@ -75,7 +75,7 @@ export function ProjectItem({ project, index }) {
 					)}
 
 					<div className="flex-center gap-10">
-						{repoUrl ? (
+						{links.github ? (
 							<Link
 								href={repoUrl}
 								target="_blank"
@@ -88,7 +88,7 @@ export function ProjectItem({ project, index }) {
 						):(<p className="text-sm">
 							commercial private repository 
 						</p>)}
-						{liveUrl ? (
+						{links.live ? (
 							<Link
 								href={liveUrl}
 								target="_blank"
@@ -99,7 +99,7 @@ export function ProjectItem({ project, index }) {
 								<span>Demo</span>
 							</Link>
 						):(
-							<p className="text-sm">paid service demo not available</p>
+							<p className="text-sm">currently unavailable</p>
 						)}
 					</div>
 				</footer>
