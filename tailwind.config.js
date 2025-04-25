@@ -8,6 +8,15 @@ module.exports = {
 	darkMode: "class",
 	theme: {
 		extend: {
+			keyframes: {
+				shine: {
+					"0%": { "background-position": "100%" },
+					"100%": { "background-position": "-100%" }
+				}
+			},
+			animation: {
+				shine: "shine 5s linear infinite"
+			},
 			colors: {
 				brand: {
 					light: "#FBF8F3",

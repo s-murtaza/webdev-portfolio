@@ -1,9 +1,9 @@
 const author = "Saiyed Murtaza";
 const description =
 	"Software developer from Karachi, Pakistan, who loves to develop beautiful websites, single page applications, customer relationship management or code from scratch using React, Next.js, Nodejs, Nestjs, Express";
-const url = "https://vasile-novatchii.netlify.app";
+const url = "https://murtaza-webservices.vercel.app/";
 export const AppMetadata = {
-	metadataBase: new URL("https://vasile-novatchii.netlify.app/"),
+	metadataBase: new URL("https://murtaza-webservices.vercel.app/"),
 	title: {
 		default: `Portfolio | ${author}`,
 		template: `%s | ${author}`
@@ -23,7 +23,6 @@ export const AppMetadata = {
 	],
 	creator: author,
 	authors: [{ name: author, url: url }],
-	colorScheme: "dark",
 	openGraph: {
 		title: `${author} | Portfolio`,
 		description: description,
@@ -31,17 +30,17 @@ export const AppMetadata = {
 		siteName: `${author} | Portfolio`,
 		images: [
 			{
-				url: "https://vasile-novatchii.netlify.app/screenshot.webp",
-				width: 800,
-				height: 600,
+				url: "https://murtaza-webservices.vercel.app/screenshot.png",
+				// width: 800,
+				// height: 600,
 				alt: "My personal portfolio website"
 			},
-			{
-				url: "https://vasile-novatchii.netlify.app/screenshot.webp",
-				width: 1800,
-				height: 1600,
-				alt: "My personal portfolio website"
-			}
+			// {
+			// 	url: "https://vasile-novatchii.netlify.app/screenshot.webp",
+			// 	width: 1800,
+			// 	height: 1600,
+			// 	alt: "My personal portfolio website"
+			// }
 		],
 		locale: "en-US",
 		type: "website"

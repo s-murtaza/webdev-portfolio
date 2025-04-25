@@ -1,5 +1,6 @@
 "use client";
-
+import ShinyText from "components/Shiny";
+import CustomButton from "components/Button";
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { LazyMotion, domAnimation, useInView } from "framer-motion";
@@ -40,19 +41,27 @@ export function WelcomeSection() {
 		<LazyMotion features={domAnimation}>
 			<section id="intro" className="section" ref={introRef}>
 				<div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr] lg:grid-cols-[1fr_0.7fr] gap-4 items-center">
-					<div className="py-5 md:py-10">
+					<div className="py-5 md:py-10 space-y-8">
 						<h1
 							tabIndex="0"
 							ref={ref}
-							className="text-3xl md:text-5xl xl:text-6xl font-bold"
+							className="text-3xl md:text-4xl xl:text-5xl font-bold capitalize"
 							style={{
 								transform: isInView ? "none" : "translateX(-200px)",
 								opacity: isInView ? 1 : 0,
 								transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-							}}
+							}} 
 						>
 							<p>
-								Hi, I&apos;m <mark>Murtaza</mark> a <mark>full stack</mark> software developer.
+								Hi, I&apos;m{" "}
+								<mark className="text-transparent bg-gradient-to-t from-blue-500 to-violet-800 bg-clip-text capitalize">
+									Murtaza
+								</mark>{" "}
+								a{" "}
+								<mark className="text-transparent bg-gradient-to-t from-blue-500 to-violet-800 bg-clip-text ">
+									Full stack
+								</mark>{" "}
+								Software developer.
 							</p>
 						</h1>
 
@@ -90,7 +99,7 @@ export function WelcomeSection() {
 							</p>
 						</div>
 
-						<p
+						{/* <p
 							tabIndex="0"
 							ref={ref}
 							className="mt-3 mb-10 text-gray-500 text-xl"
@@ -101,7 +110,7 @@ export function WelcomeSection() {
 							}}
 						>
 							Stick around to see some of my work.
-						</p>
+						</p> */}
 						<div
 							ref={ref}
 							style={{
@@ -114,10 +123,15 @@ export function WelcomeSection() {
 								href="#projects"
 								onClick={onClick}
 								tabIndex="0"
-								className="btn"
+								className="btn-outlined bg-gradient-to-t from-blue-700 via-indigo-700 to-violet-900"
 								aria-label="Latest projects"
 							>
-								See my latest projects
+								<ShinyText
+									text="See My Latest Work"
+									disabled={false}
+									speed={3}
+									className="custom-class"
+								></ShinyText>
 							</Link>
 						</div>
 					</div>
