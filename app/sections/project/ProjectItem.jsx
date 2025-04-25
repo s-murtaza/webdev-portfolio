@@ -77,7 +77,7 @@ export function ProjectItem({ project, index }) {
 					<div className="flex-center gap-10">
 						{links.github ? (
 							<Link
-								href={repoUrl}
+								href={links.github}
 								target="_blank"
 								className="icon-link-btn"
 								title="Go to Github repository"
@@ -90,7 +90,7 @@ export function ProjectItem({ project, index }) {
 						</p>)}
 						{links.live ? (
 							<Link
-								href={liveUrl}
+								href={links.live}
 								target="_blank"
 								className="icon-link-btn"
 								title="Go to live address"
