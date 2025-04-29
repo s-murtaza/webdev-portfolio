@@ -58,10 +58,10 @@ export function AboutSection() {
 					>
 						<p>My name is Saiyed Murtaza.</p>
 						<p className="mb-8">
-							I&apos;m a web developer, crafting tailored software solutions for SMB's. With
-							expertise in a modern techstack, I specialize in websites that drive results. Whether
-							it&apos;s building, SaaS applications, Admin Panels, Integrating APIs or enhancing
-							your online presence, I&apos;m here to turn your vision into reality.
+							Full-Stack Developer specializing in scalable web solutions for SMB's. With expertise
+							in a modern techstack, I specialize in websites that drive results. Whether it&apos;s
+							building, SaaS applications, Admin Panels, Integrating APIs or enhancing your online
+							presence, I&apos;m here to turn your vision into reality.
 						</p>
 						<HeadingDivider
 							title={<span className="text-sm">What you get with me</span>}
@@ -128,18 +128,18 @@ export function AboutSection() {
 							<div className="absolute inset-0 bg-gradient-to-r from-indigo-900 via-blue-800 to-indigo-600 rounded-lg transform rotate-3 scale-[1.03] opacity-70" />
 
 							<div className="relative p-1 bg-white dark:bg-gray-800 rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-[1.02]"> */}
-								<Image
-									src="/profilePic.png"
-									alt="Saiyed Murtaza - Web Developer"
-									width={350}
-									height={350}
-									className="object-cover rounded-md"
-								/>
+					<Image
+						src="/profilePic.png"
+						alt="Saiyed Murtaza - Web Developer"
+						width={350}
+						height={350}
+						className="object-cover rounded-md"
+					/>
 
-								{/* Decorative elements */}
-								{/* <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-light to-blue-normal rounded-full opacity-20" /> */}
-								{/* <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-indigo-800 via-blue-800 to-indigo-900 rounded-full opacity-20" /> */}
-							{/* </div>
+					{/* Decorative elements */}
+					{/* <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-light to-blue-normal rounded-full opacity-20" /> */}
+					{/* <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-indigo-800 via-blue-800 to-indigo-900 rounded-full opacity-20" /> */}
+					{/* </div>
 
 							<motion.div
 								className="absolute -right-5 -bottom-5 bg-gradient-to-r from-indigo-600 to-indigo-900 text-white px-4 py-2 rounded-full shadow-lg"
