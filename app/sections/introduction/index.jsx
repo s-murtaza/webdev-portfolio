@@ -7,6 +7,8 @@ import { LazyMotion, domAnimation, useInView } from "framer-motion";
 import { WelcomeAnimation } from "./IntroAnimation";
 import { useScrollTo } from "hooks";
 import { useMediaQuery } from "utils";
+import { SITE_ROUTES } from "constants";
+import { MENU_OPTIONS } from "constants";
 
 export function WelcomeSection() {
 	const ref = useRef(null);
@@ -50,7 +52,7 @@ export function WelcomeSection() {
 								transform: isInView ? "none" : "translateX(-200px)",
 								opacity: isInView ? 1 : 0,
 								transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-							}} 
+							}}
 						>
 							<p>
 								Hi, I&apos;m{" "}
@@ -122,6 +124,13 @@ export function WelcomeSection() {
 							<Link
 								href="#projects"
 								onClick={onClick}
+								className="btn-outlined bg-gradient-to-t from-blue-700 via-indigo-700 to-violet-900"
+							>
+								See My Latest Work{" "}
+							</Link>
+							{/* <a
+								href={SITE_ROUTES.projects}
+								onClick={onClick}
 								tabIndex="0"
 								className="btn-outlined bg-gradient-to-t from-blue-700 via-indigo-700 to-violet-900"
 								aria-label="Latest projects"
@@ -132,7 +141,7 @@ export function WelcomeSection() {
 									speed={3}
 									className="custom-class"
 								></ShinyText>
-							</Link>
+							</a> */}
 						</div>
 					</div>
 

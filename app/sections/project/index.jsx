@@ -34,8 +34,8 @@ export function ProjectsSection() {
 		requestAnimationFrame(raf);
 	});
 	return (
-		<div className="min-h-screen w-full text-white" id="projects">
-			<div className="max-w-7xl mx-auto py-24">
+		<div className="min-h-screen max-w-7xl mx-auto py-24 text-white" id="projects">
+			<div className="">
 				<HeadingDivider title="Projects"></HeadingDivider>
 
 				<div className="space-y-64 relative" ref={container}>

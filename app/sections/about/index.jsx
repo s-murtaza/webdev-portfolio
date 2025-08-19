@@ -45,7 +45,7 @@ export function AboutSection() {
 		<LazyMotion features={domAnimation}>
 			<section id="about" className="section">
 				<HeadingDivider title="About me" />
-				<div className="pt-10 pb-16 flex md:flex-row flex-col justify-between gap-3">
+				<div className="pt-10 pb-16 flex md:flex-row flex-col justify-between align-center gap-3 relative">
 					<div
 						tabIndex="0"
 						ref={ref}
@@ -129,11 +129,12 @@ export function AboutSection() {
 
 							<div className="relative p-1 bg-white dark:bg-gray-800 rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-[1.02]"> */}
 					<Image
-						src="/profilePic.png"
+						src="/profile-pic.webp"
 						alt="Saiyed Murtaza - Web Developer"
-						width={350}
-						height={350}
+						width={375}
+						height={375}
 						className="object-cover rounded-md"
+						loading="lazy"
 					/>
 
 					{/* Decorative elements */}
