@@ -3,22 +3,20 @@ import { useInView } from "framer-motion";
 import Link from "next/link";
 import ImageGallery from "react-image-gallery";
 import { Loader } from "components";
-import { VscSourceControl } from "react-icons/vsc";
-import { FiExternalLink } from "react-icons/fi";
+import { GitFork, ExternalLink } from "lucide-react";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 export function ProjectItem({ project, index }) {
-	const { description, images, links, technologies, title } = project;
+	const { description, images, featureDoc, links, technologies, title } = project;
 	const cardRef = useRef(null);
 	const isInView = useInView(cardRef, { once: true });
 
 	const galleryImages = images.map((img, index) => ({
 		key: index,
-		original: img,
+		original: img.url,
 		loading: "lazy"
 	}));
 
-	
 	return (
 		<article
 			ref={cardRef}
@@ -32,7 +30,7 @@ export function ProjectItem({ project, index }) {
 			}}
 		>
 			<figure>
-				<div className="aspect-[12/9.2] w-full h-full">
+				<div className="aspect-video w-full h-full">
 					<Suspense fallback={<Loader />}>
 						<ImageGallery
 							items={galleryImages}
@@ -41,9 +39,8 @@ export function ProjectItem({ project, index }) {
 							showIndex
 							lazyload
 							additionalClass="gallery-item"
-							autoPlay={true}							
-							slideInterval={5000} // 3 seconds
-
+							// autoPlay={false}
+							// slideInterval={5000} // 3 seconds
 						/>
 					</Suspense>
 				</div>
@@ -57,6 +54,11 @@ export function ProjectItem({ project, index }) {
 					<p tabIndex="0" className="leading-7 font-light">
 						{description}
 					</p>
+					{featureDoc && (
+						<Link href={featureDoc} className="underline" target="_blank" rel="noopener noreferrer">
+							Complete Feature Documention
+						</Link>
+					)}
 				</header>
 
 				<footer className="flex flex-col gap-10">
@@ -74,32 +76,38 @@ export function ProjectItem({ project, index }) {
 						</div>
 					)}
 
-					<div className="flex-center gap-10">
-						{links.github ? (
+					<div className="capitalize text-sm flex-center gap-10 text-white">
+						{links.github.url ? (
 							<Link
-								href={links.github}
+								href={links.github.url}
 								target="_blank"
 								className="icon-link-btn"
 								title="Go to Github repository"
 							>
-								<VscSourceControl />
+								<GitFork className="h-4 w-4" />
 								<span>Source</span>
 							</Link>
-						):(<p className="text-sm">
-							commercial private repository 
-						</p>)}
-						{links.live ? (
+						) : (
+							<span className="flex gap-2 leading-none">
+								<GitFork className="h-4 w-4" />
+								{links.github.unavailableMsg ?? "commercial repository"}
+							</span>
+						)}
+						{links.live.url ? (
 							<Link
-								href={links.live}
+								href={links.live.url}
 								target="_blank"
 								className="icon-link-btn"
 								title="Go to live address"
 							>
-								<FiExternalLink />
+								<ExternalLink className="h-4 w-4" />
 								<span>Demo</span>
 							</Link>
-						):(
-							<p className="text-sm">currently unavailable</p>
+						) : (
+							<span className="flex gap-2 leading-none">
+								<ExternalLink className="h-4 w-4" />
+								{links.live.unavailableMsg ?? "unavailable"}
+							</span>
 						)}
 					</div>
 				</footer>

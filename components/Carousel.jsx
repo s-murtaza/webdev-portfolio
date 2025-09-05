@@ -19,7 +19,7 @@ export default function CustomCarousel({ images, projectTitle, onImageClick }) {
 			<div className="overflow-hidden rounded-md">
 				<div className="relative aspect-video">
 					<Image
-						src={images[currentIndex] || "/placeholder.svg"}
+						src={images[currentIndex].url || "/placeholder.svg"}
 						alt={`${projectTitle} screenshot ${currentIndex + 1}`}
 						fill
 						className="object-cover transition-transform duration-500"

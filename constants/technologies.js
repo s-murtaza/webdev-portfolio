@@ -21,15 +21,10 @@ export const TECHNOLOGIES = [
 		category: "Front-end",
 		items: [
 			{ name: "React", icon: <FaReact size={32} /> },
-			{ name: "HTML", icon: <AiFillHtml5 size={32} /> },
-			{ name: "CSS", icon: <DiCss3 size={32} /> },
 			{ name: "JS/TS", icon: <IoLogoJavascript size={32} /> },
 			{ name: "Next", icon: <TbBrandNextjs size={32} /> },
 			{ name: "Tailwind CSS", icon: <TbBrandTailwind size={32} /> },
-			{ name: "MUI", icon: <MuiIcon width={32} /> },
-			{ name: "AntD", icon: <AiOutlineAntDesign size={32} /> },
-			{ name: "Bootstrap", icon: <BsBootstrap size={32} /> },
-			{ name: "ShadCn", icon: <ChakraIcon width={32} /> },
+			{ name: "ShadCn", icon: <ChakraIcon width={32} /> }
 		]
 	},
 	{
@@ -38,7 +33,17 @@ export const TECHNOLOGIES = [
 			{ name: "NodeJs", icon: <FaNodeJs size={32} /> },
 			{ name: "ExpressJS", icon: <ZeplinIcon width={36} /> },
 			{ name: "NestJs", icon: <AdobeXDIcon width={32} /> },
-			{name: "PostgreSQL"}
+			{ name: "PostgreSQL" },
+			{ name: "TypeORM" }
+		]
+	},
+	{
+		category: "AI/ML",
+		items: [
+			{ name: "Langchain", icon: <FaNodeJs size={32} /> },
+			{ name: "Vector DBs", icon: <ZeplinIcon width={36} /> },
+			{ name: "PineCone", icon: <AdobeXDIcon width={32} /> },
+			{ name: "GPT Api" }
 		]
 	},
 	{
@@ -48,7 +53,7 @@ export const TECHNOLOGIES = [
 			{ name: "Vercel", icon: <JiraIcon width={32} /> },
 			{ name: "Docker", icon: <FaTrello size={32} /> },
 			{ name: "Github", icon: <AiFillGithub size={32} /> },
-			{name: "DigitalOcean"}
+			{ name: "DigitalOcean" }
 		]
 	}
 ];

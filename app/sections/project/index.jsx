@@ -1,23 +1,40 @@
 "use client";
 import CustomCarousel from "components/Carousel";
-import CustomButton from "components/Button";
-import { useState, useRef } from "react";
-import Image from "next/image";
-import { motion, useScroll, useTransform, AnimatePresence, useInView } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
-import projects from "constants/projects";
+import { AnimatePresence, motion, useInView, useScroll, useTransform } from "framer-motion";
+import { ExternalLink, GitFork } from "lucide-react";
+import { useRef, useState } from "react";
+// import projects from "constants/projects";
 import Lenis from "@studio-freight/lenis";
-import { useEffect } from "react";
+import Loading from "app/loading";
 import { HeadingDivider } from "components";
 import Link from "next/link";
-import { SITE_ROUTES } from "constants";
-import { VscSourceControl } from "react-icons/vsc";
+import { useEffect } from "react";
 
 export function ProjectsSection() {
 	const btnRef = useRef(null);
 	const isBtnInView = useInView(btnRef, { once: true });
 
+	const [projects, setProjects] = useState([]);
+	const [loading, setLoading] = useState(true);
+
 	const container = useRef(null);
+
+	useEffect(() => {
+		async function fetchProjects() {
+			try {
+				const res = await fetch("/api/top-projects");
+				const data = await res.json();
+				console.log("fetched projects:", data);
+				setProjects(data);
+			} catch (err) {
+				console.error("Error loading projects:", err);
+			} finally {
+				setLoading(false);
+			}
+		}
+		fetchProjects();
+	}, []);
+
 	const { scrollYProgress } = useScroll({
 		target: container,
 		offset: ["start start", "end end"]
@@ -33,11 +50,13 @@ export function ProjectsSection() {
 
 		requestAnimationFrame(raf);
 	});
+
 	return (
 		<div className="min-h-screen max-w-7xl mx-auto py-24 text-white" id="projects">
 			<div className="">
 				<HeadingDivider title="Projects"></HeadingDivider>
 
+				{loading && <Loading />}
 				<div className="space-y-64 relative" ref={container}>
 					{projects.map((project, i) => {
 						const targetScale = 1 - (projects.length - i) * 0.05;
@@ -54,34 +73,23 @@ export function ProjectsSection() {
 						);
 					})}
 
-					<motion.div
-						className="flex justify-center pt-16"
-						initial={{ opacity: 0, y: 100 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{
-							duration: 0.8,
-							type: "spring",
-							stiffness: 100,
-							damping: 20
+					<div
+						ref={btnRef}
+						className="flex justify-center pt-10"
+						style={{
+							transform: isBtnInView ? "none" : "translateY(40px)",
+							opacity: isBtnInView ? 1 : 0,
+							transition: "all 0.9s cubic-bezier(0.17,0.55,0.55,1) 0.2s"
 						}}
-						viewport={{ once: true, amount: 0.8 }}
 					>
 						<Link
-							href={"/projects"}
-							tabIndex={-1}
+							href="/projects"
 							aria-label="Go to projects page"
-							ref={btnRef}
-							className="btn bg-gradient-to-t from-blue-700 via-indigo-700 to-violet-900"
-							style={{
-								transform: btnRef ? "none" : "translateX(-50px)",
-								opacity: isBtnInView ? 1 : 0,
-								transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-							}}
+							className="btn text-lg px-8 py-4 text-bold rounded-md hover:opacity-90 bg-gradient-to-t from-blue-700 via-indigo-700 to-violet-900"
 						>
-							{" "}
-							See More Projects
+							View All Projects
 						</Link>
-					</motion.div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -197,14 +205,19 @@ function ProjectCard({ i, project, progress, range, targetScale, links }) {
 					</motion.h3>
 					<motion.div
 						initial={{ opacity: 0, width: 0 }}
-						whileInView={{ opacity: 1, width: "40%", height: '2px', backgroundImage: 'linear-gradient(120deg, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.2) 60%)' }}
+						whileInView={{
+							opacity: 1,
+							width: "40%",
+							height: "2px",
+							backgroundImage:
+								"linear-gradient(120deg, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.2) 60%)"
+						}}
 						transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{once: true}}
-            className={`bg-gradient-to-r from-indigo-300 to-indigo-500 rounded-full mb-2`}
+						viewport={{ once: true }}
+						className={`bg-gradient-to-r from-indigo-300 to-indigo-500 rounded-full mb-2`}
 					/>
 
 					<motion.p
-						className=""
 						initial={{ opacity: 0, x: 50 }}
 						whileInView={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.6, delay: 0.2 }}
@@ -212,6 +225,20 @@ function ProjectCard({ i, project, progress, range, targetScale, links }) {
 					>
 						{project.description}
 					</motion.p>
+
+					{ project.featureDoc && 
+					<motion.div
+						initial={{ opacity: 0, x: 50 }}
+						whileInView={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.6, delay: 0.2 }}
+						viewport={{ once: true }}
+					>
+											 
+						<Link href={project.featureDoc} className="underline" target="_blank" rel="noopener noreferrer">
+							Complete Feature Documention
+						</Link>
+					
+					</motion.div> }
 
 					<motion.div
 						className="flex flex-wrap gap-2"
@@ -234,40 +261,38 @@ function ProjectCard({ i, project, progress, range, targetScale, links }) {
 						transition={{ duration: 0.6, delay: 0.4 }}
 						viewport={{ once: true }}
 					>
-						{/* <CustomButton href={project.links.live} variant="outline" size="sm" className="gap-2">
-						<ExternalLink className="h-4 w-4" />
-						<span>Live Demo</span>
-					</CustomButton>
-					<CustomButton href={project.links.github} variant="outline" size="sm" className="gap-2">
-						<Github className="h-4 w-4" />
-						<span>Source Code</span>
-					</CustomButton> */}
-						<div className="flex-center gap-10">
-							{links.github ? (
+						<div className="capitalize text-sm flex-center gap-10 text-white">
+							{links.github.url ? (
 								<Link
-									href={links.github}
+									href={links.github.url}
 									target="_blank"
 									className="icon-link-btn"
 									title="Go to Github repository"
 								>
-									<VscSourceControl />
+									<GitFork className="h-4 w-4" />
 									<span>Source</span>
 								</Link>
 							) : (
-								<p className="text-sm">commercial private repository</p>
+								<span className="flex gap-2 leading-none">
+									<GitFork className="h-4 w-4" />
+									{links.github.unavailableMsg ?? "commercial repository"}
+								</span>
 							)}
-							{links.live ? (
+							{links.live.url ? (
 								<Link
-									href={links.live}
+									href={links.live.url}
 									target="_blank"
 									className="icon-link-btn"
 									title="Go to live address"
 								>
-									<Github className="h-4 w-4" />
+									<ExternalLink className="h-4 w-4" />
 									<span>Demo</span>
 								</Link>
 							) : (
-								<p className="text-sm">currently unavailable</p>
+								<span className="flex gap-2 leading-none">
+									<ExternalLink className="h-4 w-4" />
+									{links.live.unavailableMsg ?? "unavailable"}
+								</span>
 							)}
 						</div>
 					</motion.div>

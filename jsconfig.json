@@ -11,11 +11,13 @@
 		"noFallthroughCasesInSwitch": true,
 		"module": "esnext",
 		"moduleResolution": "node",
+		"ignoreDeprecations": "6.0",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"noEmit": true
+		"noEmit": true,
+		"paths": {}
 	},
 	"include": ["app", "public", "styles", "pages", "utils"],
-	"paths": {},
+
 	"exclude": ["node_modules"]
 }

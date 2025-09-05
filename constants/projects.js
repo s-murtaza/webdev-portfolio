@@ -11,9 +11,7 @@ const projects = [
 			"/projectImages/fabs-rentals-ln/fr6.png"
 		],
 		links: {
-
 		},
-
 		technologies: ["NextJS", "Typescript", "NestJs", "PostgreSQL", "ShadCn", "React-Context"]
 	},
 	{

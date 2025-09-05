@@ -24,17 +24,11 @@ import {
 
 const TimeLineData = [
 	{
-		heading: "Business Software",
+		heading: "Software",
 		icon: MonitorDot,
 		secondaryIcons: [ShieldCheck, Database, BarChart3],
 		color: "from-indigo-400 to-blue-700",
-		text: [
-			"Customer/Admin Portals",
-			"RBAC Systems",
-			"CRMs",
-			"Inventory Management",
-			"Booking Systems"
-		],
+		text: ["Rental/Booking Software", "Customer/Admin Portals", "RBAC Systems", "Payment Systems"],
 		bgPattern:
 			"radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 90%)"
 	},
@@ -43,34 +37,28 @@ const TimeLineData = [
 		icon: Brain,
 		secondaryIcons: [MessageSquareText, Database, LineChart],
 		color: "from-violet-500 to-indigo-700",
-		text: ["Chatbots", "Rags"],
+		text: ["Chatbots", "Rags", "Agentic AI", "Vector DBs", "Automations"],
 		bgPattern:
 			"radial-gradient(circle at 10% 20%, rgba(109, 40, 217, 0.1) 0%, rgba(91, 33, 182, 0.05) 90%)"
 	},
-
-	{
-		heading: "Business Pages",
-		icon: Globe,
-		secondaryIcons: [Building2, Smartphone, MailCheck],
-		color: "from-indigo-400 to-blue-600",
-		text: ["Company Profiles", "Responsive Design", "Contact Forms"],
-		bgPattern:
-			"radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 90%)"
-	},
+	// {
+	// 	heading: "Business Pages",
+	// 	icon: Globe,
+	// 	secondaryIcons: [Building2, Smartphone, MailCheck],
+	// 	color: "from-indigo-400 to-blue-600",
+	// 	text: ["Company Profiles", "Responsive Design", "Contact Forms"],
+	// 	bgPattern:
+	// 		"radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 90%)"
+	// },
 	{
 		heading: "SaaS",
 		icon: Cloud,
 		secondaryIcons: [CreditCard, Layers, PackageSearch],
 		color: "from-indigo-500 to-violet-700",
-		text: [
-			"Subscription Models",
-			"Custom Dashboards",
-			"API Integrations",
-			"Scalability",
-			"Analytical Tools"
-		],
+		text: ["Subscription Models", "API Integrations", "Scalability", "Analytical Tools"],
 		bgPattern:
-			"radial-gradient(circle at 10% 20%, rgba(109, 40, 217, 0.1) 0%, rgba(91, 33, 182, 0.05) 90%)"
+			"radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 90%)"
+		// "radial-gradient(circle at 10% 20%, rgba(109, 40, 217, 0.1) 0%, rgba(91, 33, 182, 0.05) 90%)"
 	}
 ];
 
@@ -214,7 +202,7 @@ export function Services() {
 						<li
 							id={`carousel__item-${index}`}
 							key={index}
-							className={`flex flex-col gap-4 snap-start w-[calc((100%/2)-30px)] min-w-[280px] md:w-[22%] p-6 
+							className={`flex flex-col gap-4 snap-start w-[calc((100%/2)-30px)] min-w-[280px] md:w-[30%] p-6 
                 dark:bg-gray-800/80 bg-white/90 rounded-xl backdrop-blur-xl transition-all duration-300
                 border border-transparent hover:border-gray-200 dark:hover:border-gray-700
                 ${mod !== 0 ? "md:mt-10" : ""}
@@ -255,9 +243,12 @@ export function Services() {
 								</h3>
 
 								<motion.div
-									style={{ backgroundImage: 'linear-gradient(120deg, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.2) 60%)' }}
+									style={{
+										backgroundImage:
+											"linear-gradient(120deg, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.2) 60%)"
+									}}
 									initial={{ width: 0, opacity: 0 }}
-									animate={isInView ? { width: 80, opacity: 1, } : { width: 0, opacity: 0 }}
+									animate={isInView ? { width: 80, opacity: 1 } : { width: 0, opacity: 0 }}
 									transition={{ delay: 0.5, duration: 0.6 }}
 									className={`h-[2px] w-20 bg-gradient-to-r ${item.color} rounded-full mb-2`}
 								/>
