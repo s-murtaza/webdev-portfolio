@@ -1,14 +1,12 @@
 "use client";
 
-import { useRef } from "react";
-import { LazyMotion, domAnimation, useInView } from "framer-motion";
 import { HeadingDivider } from "components";
-import { Services } from "./Services";
+import { LazyMotion, domAnimation, motion, useInView } from "framer-motion";
+import { Code, Coffee } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { Bulb, Code, Briefcase, GraduationCap, Coffee } from "lucide-react";
-import { AiFillBulb, AiOutlineBulb } from "react-icons/ai";
+import { useRef, useState } from "react";
+import { AiOutlineBulb } from "react-icons/ai";
+import { Services } from "./Services";
 
 export function AboutSection() {
 	const ref = useRef(null);
@@ -58,7 +56,7 @@ export function AboutSection() {
 					>
 						<p>My name is Saiyed Murtaza.</p>
 						<p className="mb-8">
-							Full-Stack Developer specializing in scalable web solutions for SMB's. With expertise
+							Full-Stack Developer specializing in scalable web solutions for SMB&apos;s. With expertise
 							in a modern techstack, I specialize in websites that drive results. Whether it&apos;s
 							building, SaaS applications, Admin Panels, Integrating APIs or enhancing your online
 							presence, I&apos;m here to turn your vision into reality.

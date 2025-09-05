@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { Calendar, ArrowRight } from "lucide-react";
 import ShinyText from "components/Shiny";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, Calendar } from "lucide-react";
 import Link from "next/link";
+import { useRef } from "react";
 
 export function CTASection() {
 	const ref = useRef(null);
@@ -41,7 +41,7 @@ export function CTASection() {
 					</h2>
 
 					<p className="text-xl dark:text-gray-300 text-gray-500 max-w-2xl mx-auto">
-						Let's discuss your needs and explore further.
+						Let&apos;s discuss your needs and explore further.
 					</p>
 
 					<motion.div

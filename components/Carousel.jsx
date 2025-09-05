@@ -1,7 +1,7 @@
 "use client"
-import { useState } from "react";
-import { ChevronRight, ExternalLink, Github, ChevronLeft } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function CustomCarousel({ images, projectTitle, onImageClick }) {
 	const [currentIndex, setCurrentIndex] = useState(0);

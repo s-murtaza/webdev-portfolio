@@ -1,14 +1,10 @@
 "use client";
-import ShinyText from "components/Shiny";
-import CustomButton from "components/Button";
-import { useEffect, useState, useRef } from "react";
-import Link from "next/link";
 import { LazyMotion, domAnimation, useInView } from "framer-motion";
-import { WelcomeAnimation } from "./IntroAnimation";
 import { useScrollTo } from "hooks";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "utils";
-import { SITE_ROUTES } from "constants";
-import { MENU_OPTIONS } from "constants";
+import { WelcomeAnimation } from "./IntroAnimation";
 
 export function WelcomeSection() {
 	const ref = useRef(null);

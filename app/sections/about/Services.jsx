@@ -1,26 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { LazyMotion, domAnimation, useInView, motion } from "framer-motion";
 import { HeadingDivider } from "components";
+import { LazyMotion, domAnimation, motion, useInView } from "framer-motion";
 import {
-	MonitorDot,
+	BarChart3,
 	Brain,
 	Cloud,
-	Globe,
-	BarChart3,
-	ShieldCheck,
-	MessageSquareText,
-	Database,
 	CreditCard,
-	PackageSearch,
-	Star,
+	Database,
 	Layers,
 	LineChart,
-	Building2,
-	Smartphone,
-	MailCheck
+	MessageSquareText,
+	MonitorDot,
+	PackageSearch,
+	ShieldCheck
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const TimeLineData = [
 	{
@@ -106,21 +101,21 @@ const floatVariants = {
 	}
 };
 
-const secondaryIconVariants = {
-	hidden: { opacity: 0, y: 10 },
-	visible: (i) => ({
-		opacity: 1,
-		y: 0,
-		transition: {
-			delay: 0.2 + i * 0.1,
-			duration: 0.5
-		}
-	}),
-	hover: {
-		y: -5,
-		transition: { duration: 0.2 }
-	}
-};
+// const secondaryIconVariants = {
+// 	hidden: { opacity: 0, y: 10 },
+// 	visible: (i) => ({
+// 		opacity: 1,
+// 		y: 0,
+// 		transition: {
+// 			delay: 0.2 + i * 0.1,
+// 			duration: 0.5
+// 		}
+// 	}),
+// 	hover: {
+// 		y: -5,
+// 		transition: { duration: 0.2 }
+// 	}
+// };
 
 export function Services() {
 	const [activeItem, setActiveItem] = useState(0);

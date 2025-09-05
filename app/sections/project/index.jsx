@@ -3,7 +3,6 @@ import CustomCarousel from "components/Carousel";
 import { AnimatePresence, motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, GitFork } from "lucide-react";
 import { useRef, useState } from "react";
-// import projects from "constants/projects";
 import Lenis from "@studio-freight/lenis";
 import Loading from "app/loading";
 import { HeadingDivider } from "components";
