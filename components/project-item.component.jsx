@@ -62,7 +62,7 @@ export function ProjectItem({ project, index }) {
 				</header>
 
 				<footer className="flex flex-col gap-10">
-					{!!technologies.length && (
+					{!!technologies && (
 						<div className="flex-center flex-wrap gap-3">
 							{technologies.map((tag) => (
 								<span
